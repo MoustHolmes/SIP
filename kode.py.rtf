@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 from matplotlib.pyplot import imshow, show\
+from skimage.io import imread\
+from pylab import ginput\
+# Read in 8-bit intensity image of cell\
+B = imread('cell.tif');\
+# Use the mouse cursor to examine the grayscale image in the interactive viewer\
+imshow(B, cmap='gray');\
+show()\
+# Read in 8-bit colour image.\
+D = imread('onion.png');\
+# Use the mouse cursor to examine the RGB image in the interactive viewer\
+imshow(D);\
+show()\
+# Use the mouse to get coordinate input to your program\
+imshow(D)\
+print('Click on 3 points in the image')\
+coord = ginput(3)\
+print('You clicked: ' + str(coord))\
+show()\
+# print pixel value at location (25,50)\
+print(B[25,50])\
+# set pixel value at (25,50) to white\
+B[25,50] = 255;\
+# view resulting changes in image\
+imshow(B, cmap='gray')\
+show()\
+# print RGB pixel value at location (25,50)\
+print(D[25,50,:])\
+# print only the red value at (25,50)\
+print(D[25,50,0])\
+D[25,50,:] = [255, 255, 255]; # set pixel value to RGB white\
+imshow(D)\
+# view resulting changes in image\
+show()}
